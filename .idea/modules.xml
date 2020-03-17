@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/boot-redis/boot-redis.iml" filepath="$PROJECT_DIR$/boot-redis/boot-redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-demo/spring-demo.iml" filepath="$PROJECT_DIR$/spring-demo/spring-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spring-util.iml" filepath="$PROJECT_DIR$/spring-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-util-parent.iml" filepath="$PROJECT_DIR$/spring-util-parent.iml" />
     </modules>
   </component>
 </project>
