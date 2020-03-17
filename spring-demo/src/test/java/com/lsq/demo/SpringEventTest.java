@@ -25,6 +25,7 @@ public class SpringEventTest {
         System.out.println("输入事件类型开始");
         webApplicationContext.publishEvent(testNotifyEvent);
         System.out.println("输入事件类型结束");
+        //``
         System.out.println(testNotifyEvent.getMsg());
     }
 }
