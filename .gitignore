@@ -1,0 +1,9 @@
+/.idea/
+*.class
+.settings*
+*.project
+*target*
+.classpath
+*/.gitignore
+*.iml
+.*
