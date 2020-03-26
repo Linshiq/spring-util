@@ -22,7 +22,7 @@ import java.lang.annotation.*;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Inherited
+@Inherited // 表示该注解可以被继承
 public @interface ServiceCode {
 
     String value() default "";
