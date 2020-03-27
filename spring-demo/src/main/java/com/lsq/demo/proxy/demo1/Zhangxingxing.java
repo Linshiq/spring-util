@@ -26,4 +26,10 @@ public class Zhangxingxing implements Person {
         System.out.println("失策2号");
         return null;
     }
+
+    @Override
+    public String findLove3(String str) {
+        System.out.println("我叫张三执行 findLove3");
+        return "有参数的";
+    }
 }

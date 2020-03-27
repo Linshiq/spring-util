@@ -8,4 +8,6 @@ public interface Person {
     String findLove();
 
     String findLove2();
+
+    String findLove3(String str);
 }
