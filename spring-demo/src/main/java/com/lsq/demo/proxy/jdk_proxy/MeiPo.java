@@ -1,4 +1,4 @@
-package com.lsq.demo.proxy.demo1;
+package com.lsq.demo.proxy.jdk_proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

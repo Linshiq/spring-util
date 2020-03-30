@@ -1,4 +1,4 @@
-package com.lsq.demo.proxy.demo1;
+package com.lsq.demo.proxy.jdk_proxy;
 
 import sun.misc.ProxyGenerator;
 
