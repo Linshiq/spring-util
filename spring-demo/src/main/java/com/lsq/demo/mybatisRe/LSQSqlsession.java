@@ -15,6 +15,12 @@ public class LSQSqlsession {
         this.configuration = configuration;
     }
 
+    /**
+     * 获取mapper
+     * @param clazz mapper.class
+     * @param <T>
+     * @return
+     */
     public <T> T getMapper(Class<T> clazz){
 
         return configuration.getMapper(clazz,this);

@@ -6,7 +6,13 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 public class LSQConfiguration {
-
+    /**
+     * 获取mapper
+     * @param clazz mapper.class
+     * @param sqlsession 上送的sqlsession
+     * @param <T>
+     * @return
+     */
     public <T> T getMapper(Class<T> clazz,LSQSqlsession sqlsession) {
         // 换成MeiPo写法是否可以
         return (T) Proxy.newProxyInstance(this.getClass().getClassLoader(),new Class[]{clazz}, new LSQMapperProxy(sqlsession));

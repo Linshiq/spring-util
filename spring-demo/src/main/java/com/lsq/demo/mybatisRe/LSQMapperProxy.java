@@ -9,20 +9,11 @@ import java.lang.reflect.Proxy;
 
 public class LSQMapperProxy implements InvocationHandler {
 
-    private Person targer;
     private final LSQSqlsession sqlSession;
 
     public LSQMapperProxy(LSQSqlsession sqlSession) {
         this.sqlSession = sqlSession;
     }
-
-    public Object getInstance(Person person){
-        this.targer = person;
-        Class clazz = person.getClass();
-        return Proxy.newProxyInstance(clazz.getClassLoader(),clazz.getInterfaces(),this);
-    }
-
-
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         // 实际mybatis在取值时，是从MapperRegistry中获取的
