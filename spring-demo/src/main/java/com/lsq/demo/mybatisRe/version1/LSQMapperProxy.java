@@ -1,11 +1,7 @@
-package com.lsq.demo.mybatisRe;
-
-import com.lsq.demo.proxy.jdk_proxy.Person;
-import org.apache.ibatis.session.SqlSession;
+package com.lsq.demo.mybatisRe.version1;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
 
 public class LSQMapperProxy implements InvocationHandler {
 

@@ -1,9 +1,8 @@
-package com.lsq.demo.mybatisRe;
+package com.lsq.demo.mybatisRe.version1;
 
 import java.lang.reflect.Proxy;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 
 public class LSQConfiguration {
     /**

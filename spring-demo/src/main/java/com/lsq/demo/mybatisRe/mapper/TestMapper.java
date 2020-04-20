@@ -4,5 +4,5 @@ import com.lsq.demo.mybatisRe.model.TestTable;
 
 public interface TestMapper {
 
-    TestTable selectByKey(int id);
+    TestTable selectByKey(int id,String name);
 }

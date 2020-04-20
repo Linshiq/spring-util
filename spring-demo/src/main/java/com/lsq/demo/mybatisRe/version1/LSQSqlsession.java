@@ -1,8 +1,4 @@
-package com.lsq.demo.mybatisRe;
-
-import org.apache.ibatis.exceptions.TooManyResultsException;
-
-import java.util.List;
+package com.lsq.demo.mybatisRe.version1;
 
 public class LSQSqlsession {
 
