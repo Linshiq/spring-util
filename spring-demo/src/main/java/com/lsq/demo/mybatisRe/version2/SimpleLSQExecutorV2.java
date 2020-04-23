@@ -21,11 +21,14 @@ public class SimpleLSQExecutorV2 implements LSQExecutor {
     }
 
     @Override
-    public <T> T query(Object object, Object parameter) {
+    public <T> T query(MapperRegister.MapperData object, Object parameter) {
         // 执行JDBC的查询
         TestTable TABLE = new TestTable();
         TABLE.setId(1);
         TABLE.setName("lsq");
-        return (T) TABLE;
+
+        query(object.sql,parameter);
+
+        return (T) object.sql;
     }
 }

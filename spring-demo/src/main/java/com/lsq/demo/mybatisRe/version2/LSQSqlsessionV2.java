@@ -37,7 +37,7 @@ public class LSQSqlsessionV2 {
      * @param <T>
      * @return
      */
-    public <T> T selectOne(Object obj, Object parameter) {
+    public <T> T selectOne(MapperRegister.MapperData obj, Object parameter) {
         return executor.query(obj,parameter);
     }
 }

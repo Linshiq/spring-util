@@ -1,5 +1,7 @@
 package com.lsq.demo.mybatisRe.version1;
 
+import com.lsq.demo.mybatisRe.version2.MapperRegister;
+
 public interface LSQExecutor {
     /**
      * 执行JDBC的查询
@@ -17,5 +19,5 @@ public interface LSQExecutor {
      * @param <T>
      * @return
      */
-    public <T> T query(Object object, Object parameter);
+    public <T> T query(MapperRegister.MapperData object, Object parameter);
 }
