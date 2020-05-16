@@ -84,7 +84,7 @@ public class DispatcherServlet extends HttpServlet {
 
                     Object instance = clazz.newInstance();
                     beanNameMap.put(name,instance);
-
+                    // 这一步存在疑惑？ 为什么？
                     Class[] interfaces = clazz.getInterfaces();
 
                     for (Class c : interfaces){
