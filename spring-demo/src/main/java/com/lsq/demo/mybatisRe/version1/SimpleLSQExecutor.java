@@ -1,6 +1,7 @@
 package com.lsq.demo.mybatisRe.version1;
 
 import com.lsq.demo.mybatisRe.model.TestTable;
+import com.lsq.demo.mybatisRe.version2.MapperRegister;
 
 public class SimpleLSQExecutor implements LSQExecutor {
     /**
@@ -20,7 +21,7 @@ public class SimpleLSQExecutor implements LSQExecutor {
     }
 
     @Override
-    public <T> T query(Object object, Object parameter) {
+    public <T> T query(MapperRegister.MapperData object, Object parameter) {
         return null;
     }
 }

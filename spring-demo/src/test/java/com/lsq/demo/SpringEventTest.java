@@ -2,6 +2,7 @@ package com.lsq.demo;
 
 
 import com.lsq.demo.listener.entity.TestNotifyEvent;
+import com.lsq.demo.spring_simple.DispatcherServlet;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +10,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.context.WebApplicationContext;
 
+import javax.servlet.ServletException;
+
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class SpringEventTest {
 
     @Autowired
     WebApplicationContext webApplicationContext;
+
+    @Autowired
+    DispatcherServlet dispatcherServlet;
 
     /**
      * 测试事件是否多重执行
@@ -27,5 +33,13 @@ public class SpringEventTest {
         System.out.println("输入事件类型结束");
         //``
         System.out.println(testNotifyEvent.getMsg());
+    }
+
+    /**
+     * 测试事件是否多重执行
+     */
+    @Test
+    public void test02() throws ServletException {
+        dispatcherServlet.init();
     }
 }

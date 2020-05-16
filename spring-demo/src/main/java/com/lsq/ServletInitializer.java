@@ -1,6 +1,7 @@
 package com.lsq;
 
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -28,6 +29,7 @@ import org.springframework.context.ConfigurableApplicationContext;
  */
 @SpringBootApplication // 打包到服务器要记得把他补上
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class}) // 需要连接数据库就把这个去掉
+//@MapperScan(basePackages = "com.lsq.dao")
 @EnableAutoConfiguration // 本人表示，一定要有这个标签(不然，你会吃亏的)
 public class ServletInitializer extends SpringBootServletInitializer {
 	
