@@ -1,4 +1,4 @@
-package com.lsq.demo.spring_simple.annotation;
+package com.lsq.demo.spring.annotation;
 
 import org.springframework.stereotype.Service;
 

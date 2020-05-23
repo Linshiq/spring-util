@@ -2,7 +2,8 @@ package com.lsq.demo;
 
 
 import com.lsq.demo.listener.entity.TestNotifyEvent;
-import com.lsq.demo.spring_simple.DispatcherServlet;
+import com.lsq.demo.spring.simple.DispatcherServlet;
+import com.lsq.demo.spring.simple2.context.LsqApplicationContext;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,8 @@ public class SpringEventTest {
      */
     @Test
     public void test02() throws ServletException {
-        dispatcherServlet.init();
+        //dispatcherServlet.init();
+        LsqApplicationContext context = new LsqApplicationContext("application.properties");
+
     }
 }

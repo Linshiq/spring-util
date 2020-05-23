@@ -1,13 +1,12 @@
-package com.lsq.demo.spring_simple;
+package com.lsq.demo.spring.simple;
 
-import com.lsq.demo.spring_simple.annotation.LSQAutowired;
-import com.lsq.demo.spring_simple.annotation.LSQController;
-import com.lsq.demo.spring_simple.annotation.LSQService;
-import com.lsq.demo.spring_simple.controller.ControllerOne;
+import com.lsq.demo.spring.annotation.LSQAutowired;
+import com.lsq.demo.spring.annotation.LSQController;
+import com.lsq.demo.spring.annotation.LSQService;
+import com.lsq.demo.spring.simple.controller.ControllerOne;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.*;

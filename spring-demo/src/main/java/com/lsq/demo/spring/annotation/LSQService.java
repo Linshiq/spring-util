@@ -1,4 +1,4 @@
-package com.lsq.demo.spring_simple.annotation;
+package com.lsq.demo.spring.annotation;
 
 import org.springframework.stereotype.Component;
 
@@ -8,6 +8,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Component
-public @interface LSQController {
+public @interface LSQService {
     String value() default "";
+
 }
