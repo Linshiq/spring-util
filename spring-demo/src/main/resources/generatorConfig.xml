@@ -1,0 +1,46 @@
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <properties resource="generator.properties"/>
+    <context id="simple" targetRuntime="MyBatis3">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin"/>
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+        <!-- 为模型生成序列化方法-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!-- 为生成的Java模型创建一个toString方法 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!--生成mapper.xml时覆盖原文件-->
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
+        <jdbcConnection driverClass="${jdbc.driverClass}"
+                        connectionURL="${jdbc.connectionURL}"
+                        userId="${jdbc.userId}"
+                        password="${jdbc.password}">
+            <!--解决mysql驱动升级到8.0后不生成指定数据库代码的问题-->
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.springboot.springbootdemos.dto" targetProject="src/main/java"/>
+
+        <sqlMapGenerator targetPackage="com.springboot.springbootdemos.mapper" targetProject="src/main/resources"/>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.springboot.springbootdemos.mapper"
+                             targetProject="src/main/java"/>
+
+        <!--生成全部表tableName设为%-->
+        <table tableName="%">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+            <columnOverride column="price" javaType="org.joda.money.Money" jdbcType="BIGINT"
+                            typeHandler="com.springboot.springbootdemos.handler.MoneyTypeHandler"/>
+        </table>
+        <!--        <table tableName="t_coffee" domainObjectName="Coffee" >
+                    <generatedKey column="id" sqlStatement="MySql" identity="true" />
+                    <columnOverride column="price" javaType="org.joda.money.Money" jdbcType="BIGINT"
+                                    typeHandler="geektime.spring.data.mybatis.handler.MoneyTypeHandler"/>
+                </table>-->
+    </context>
+</generatorConfiguration>
