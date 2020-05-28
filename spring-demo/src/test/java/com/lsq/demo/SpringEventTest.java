@@ -43,6 +43,6 @@ public class SpringEventTest {
     public void test02() throws ServletException {
         //dispatcherServlet.init();
         LsqApplicationContext context = new LsqApplicationContext("application.properties");
-
+        System.out.println(context.getBean("controllerOne"));
     }
 }

@@ -52,6 +52,7 @@ public class LsqApplicationContext implements LsqBeanFactory {
     }
 
     private void doAutowired() {
+        // TODO：如何解决还未初始化的问题
         // 先把所有bean加载
         for(Map.Entry<String, LsqBeanDefinition> beanDifinitionEntry : this.beanDefinitionMap.entrySet()){
 
