@@ -2,7 +2,7 @@ package com.lsq.demo;
 
 
 import com.lsq.demo.listener.entity.TestNotifyEvent;
-import com.lsq.demo.spring.simple.DispatcherServlet;
+import com.lsq.demo.spring.simple.LsqDispatcherServlet;
 import com.lsq.demo.spring.simple2.context.LsqApplicationContext;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,7 +21,7 @@ public class SpringEventTest {
     WebApplicationContext webApplicationContext;
 
     @Autowired
-    DispatcherServlet dispatcherServlet;
+    LsqDispatcherServlet dispatcherServlet;
 
     /**
      * 测试事件是否多重执行

@@ -58,8 +58,8 @@
         <table tableName="%">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
             <domainObjectRenamingRule searchString="^T" replaceString=""/>
-            <columnOverride column="price" javaType="org.joda.money.Money" jdbcType="BIGINT"
-                           />
+            <!--<columnOverride column="price" javaType="org.joda.money.Money" jdbcType="BIGINT"
+                           />-->
         </table>
         <!--        <table tableName="t_coffee" domainObjectName="Coffee" >
                     <generatedKey column="id" sqlStatement="MySql" identity="true" />

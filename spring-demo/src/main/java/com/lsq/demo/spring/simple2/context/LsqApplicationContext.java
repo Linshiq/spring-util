@@ -17,6 +17,7 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 public class LsqApplicationContext implements LsqBeanFactory {
 
@@ -229,6 +230,10 @@ public class LsqApplicationContext implements LsqBeanFactory {
         return null;
     }
 
+    public Properties getConfig(){
+        return beanDefinitionReader.getConfig();
+    }
+
     /**
      * 首字母转小写
      * @param s
@@ -239,5 +244,13 @@ public class LsqApplicationContext implements LsqBeanFactory {
             return s;
         else
             return (new StringBuilder()).append(Character.toLowerCase(s.charAt(0))).append(s.substring(1)).toString();
+    }
+
+    public String[] getBeanDefinitionNams(){
+        return this.beanDefinitionMap.keySet().toArray(new String[this.beanDefinitionMap.size()]);
+    }
+
+    public int getBeanDefinitionCount(){
+        return this.beanDefinitionMap.size();
     }
 }

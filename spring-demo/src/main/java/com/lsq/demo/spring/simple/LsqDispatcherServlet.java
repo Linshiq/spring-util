@@ -19,7 +19,7 @@ import java.net.URL;
 import java.util.*;
 
 @Component
-public class DispatcherServlet extends HttpServlet {
+public class LsqDispatcherServlet extends HttpServlet {
 
     private Properties properties = new Properties();
 
