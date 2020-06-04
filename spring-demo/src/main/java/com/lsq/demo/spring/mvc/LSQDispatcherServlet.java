@@ -11,10 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Pattern;
 
 public class LSQDispatcherServlet {
@@ -37,7 +34,7 @@ public class LSQDispatcherServlet {
         // Property文件中定义模板页面的位置
         String templateRoot = context.getConfig().getProperty("templateRoot");
         String templateRootPath = this.getClass().getClassLoader().getResource(templateRoot).getFile();
-
+        Arrays.toString(new int[]{});
         File templateRootDir = new File(templateRootPath);
 
         for (File template : templateRootDir.listFiles()){
