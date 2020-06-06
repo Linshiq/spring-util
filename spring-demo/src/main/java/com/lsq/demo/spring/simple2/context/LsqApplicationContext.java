@@ -6,6 +6,7 @@ import com.lsq.demo.spring.annotation.LSQService;
 import com.lsq.demo.spring.simple2.beans.LsqBeanDefinition;
 import com.lsq.demo.spring.simple2.beans.LsqBeanWrapper;
 import com.lsq.demo.spring.simple2.core.LsqBeanFactory;
+import com.lsq.demo.spring.simple2.support.LSQBeanPostProcessor;
 import com.lsq.demo.spring.simple2.support.LsqBeanDefinitionReader;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-public class LsqApplicationContext implements LsqBeanFactory {
+public class LsqApplicationContext extends LSQDefaultListableBeanFactory implements LsqBeanFactory {
 
     private String[] configLocation;
 
@@ -160,19 +161,7 @@ public class LsqApplicationContext implements LsqBeanFactory {
             if (instance == null) {
                 return null;
             }
-            BeanPostProcessor postProcessor = new BeanPostProcessor() {
-                @Override
-                public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-                    System.out.println(beanName + "开始初始化");
-                    return null;
-                }
-
-                @Override
-                public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-                    System.out.println(beanName + "结束初始化");
-                    return null;
-                }
-            };
+            LSQBeanPostProcessor postProcessor = new LSQBeanPostProcessor();
             postProcessor.postProcessBeforeInitialization(bean,beanName);
             LsqBeanWrapper beanWrapper = new LsqBeanWrapper(instance);
             beanWrapperMap.put(beanName, beanWrapper);
