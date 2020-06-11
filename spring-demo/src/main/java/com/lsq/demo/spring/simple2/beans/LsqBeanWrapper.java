@@ -1,5 +1,6 @@
 package com.lsq.demo.spring.simple2.beans;
 
+import com.lsq.demo.spring.aop.LSQAopConfig;
 import com.lsq.demo.spring.aop.LSQAopProxy;
 import com.lsq.demo.spring.simple2.support.LSQBeanPostProcessor;
 import org.springframework.beans.factory.FactoryBean;
@@ -16,7 +17,8 @@ public class LsqBeanWrapper implements FactoryBean {
     private Object originalInstance;
 
     public LsqBeanWrapper(Object instance){
-        this.wrapperInstance = aopProxy.getInstance(instance);
+        System.out.println("aopProxy地址 "+aopProxy.toString());
+        this.wrapperInstance = aopProxy.getInstance(instance.getClass());
         this.originalInstance = instance;
     }
 
@@ -37,5 +39,13 @@ public class LsqBeanWrapper implements FactoryBean {
     @Override
     public boolean isSingleton() {
         return false;
+    }
+
+    public void setAopConfig(LSQAopConfig config) {
+        this.aopProxy.setConfig(config);
+    }
+
+    public Object getOriginalInstance() {
+        return originalInstance;
     }
 }

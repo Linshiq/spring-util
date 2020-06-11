@@ -19,7 +19,7 @@ public class LsqBeanDefinitionReader {
     private Properties config = new Properties();
     private List<String> registerBeanClassname =  new ArrayList<>();
     // 约定好要扫描的包路径配置属性名
-    private final String SCAN_PACKAGE = "scanPackage";
+    private final String SCAN_PACKAGE = "lsqScanPackage";
     public LsqBeanDefinitionReader(String... location){
         // TODO 需完善
         InputStream is = this.getClass().getClassLoader().getResourceAsStream(location[0]);

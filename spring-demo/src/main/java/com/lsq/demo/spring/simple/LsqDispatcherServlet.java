@@ -3,7 +3,7 @@ package com.lsq.demo.spring.simple;
 import com.lsq.demo.spring.annotation.LSQAutowired;
 import com.lsq.demo.spring.annotation.LSQController;
 import com.lsq.demo.spring.annotation.LSQService;
-import com.lsq.demo.spring.simple.controller.ControllerOne;
+import com.lsq.demo.spring.simple.controller.ControllerOneService;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -51,7 +51,7 @@ public class LsqDispatcherServlet extends HttpServlet {
         doRegister();
 
         doAutowired();
-        ControllerOne controllerOne = (ControllerOne) beanNameMap.get("controllerOne");
+        ControllerOneService controllerOne = (ControllerOneService) beanNameMap.get("controllerOne");
         System.out.println(controllerOne.serviceTest.getClass());
     }
 

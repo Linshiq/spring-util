@@ -2,8 +2,11 @@ package com.lsq.demo;
 
 
 import com.lsq.demo.listener.entity.TestNotifyEvent;
+import com.lsq.demo.spring.aop.LSQAopProxyUtils;
 import com.lsq.demo.spring.simple.LsqDispatcherServlet;
+import com.lsq.demo.spring.simple.controller.ControllerOneService;
 import com.lsq.demo.spring.simple2.context.LsqApplicationContext;
+import com.lsq.gupaoedu.vip.spring.formework.context.GPApplicationContext;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,9 +43,23 @@ public class SpringEventTest {
      * 测试事件是否多重执行
      */
     @Test
-    public void test02() throws ServletException {
+    public void test02() throws Exception {
         //dispatcherServlet.init();
         LsqApplicationContext context = new LsqApplicationContext("application.properties");
+        ControllerOneService controllerOne = (ControllerOneService) context.getBean("controllerOneService");
+        controllerOne.add("1");
+        System.out.println(context.getBean("controllerOne"));
+    }
+
+    /**
+     * 测试事件是否多重执行
+     */
+    @Test
+    public void test03() throws Exception {
+        //dispatcherServlet.init();
+        GPApplicationContext context =  new GPApplicationContext("application.properties");
+        ControllerOneService controllerOne = (ControllerOneService) LSQAopProxyUtils.getTargetObject(context.getBean("controllerOneService"));
+        controllerOne.add("1");
         System.out.println(context.getBean("controllerOne"));
     }
 }
