@@ -7,6 +7,6 @@ public class LogAspect {
     }
 
     public void after(){
-        System.out.println("before");
+        System.out.println("after");
     }
 }

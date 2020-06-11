@@ -48,7 +48,7 @@ public class SpringEventTest {
         LsqApplicationContext context = new LsqApplicationContext("application.properties");
         ControllerOneService controllerOne = (ControllerOneService) context.getBean("controllerOneService");
         controllerOne.add("1");
-        System.out.println(context.getBean("controllerOne"));
+        System.out.println(context.getBean("controllerOneService"));
     }
 
     /**

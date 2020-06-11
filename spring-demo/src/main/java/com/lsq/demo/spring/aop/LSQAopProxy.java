@@ -66,12 +66,7 @@ public class LSQAopProxy implements MethodInterceptor {
 
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-        Method m = null;
-        try {
-            m = o.getClass().getMethod(method.getName(),method.getParameterTypes());
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+        Method m = method;
         // 调用前要做的事情（增强）
         if (this.config.contain(m)){
             LSQAopConfig.LSQAspect aspest = config.get(method);
