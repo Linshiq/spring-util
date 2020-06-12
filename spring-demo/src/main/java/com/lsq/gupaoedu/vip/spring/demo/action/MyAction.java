@@ -35,7 +35,24 @@ public class MyAction {
 		String result = queryService.query(name);
 		return out(response,result);
 	}
-	
+
+	@GPRequestMapping("/add*.json")
+	public GPModelAndView add(){
+		String result = null;
+		try {
+			result = modifyService.add(null,null);
+			return out(null,result);
+		} catch (Exception e) {
+//			e.printStackTrace();
+			Map<String,Object> model = new HashMap<String,Object>();
+			model.put("detail",e.getCause().getMessage());
+//			System.out.println(Arrays.toString(e.getStackTrace()).replaceAll("\\[|\\]",""));
+			model.put("stackTrace", Arrays.toString(e.getStackTrace()).replaceAll("\\[|\\]",""));
+			return new GPModelAndView("500",model);
+		}
+
+	}
+
 	@GPRequestMapping("/add*.json")
 	public GPModelAndView add(HttpServletRequest request,HttpServletResponse response,
 			   @GPRequestParam("name") String name,@GPRequestParam("addr") String addr){

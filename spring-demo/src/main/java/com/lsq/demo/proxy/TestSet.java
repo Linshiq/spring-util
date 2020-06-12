@@ -21,14 +21,12 @@ public class TestSet {
     }
 
     public static void main(String[] args) throws Exception{
-        Person person = (Person) new CglibMeiPo().getInstance(new ZhangSan().getClass());
-       person.findLove();
+        Object obj = new JDKMeiPo().getInstance(new ZhangSan());
         TestSet testSet = new TestSet();
-        LSQAopProxyUtils.getTargetObject(person);
         Field[] fields = testSet.getClass().getDeclaredFields();
         for (Field field : fields){
             field.setAccessible(true);
-            field.set(testSet,person);
+            field.set(testSet,obj);
         }
         System.out.println("11"+testSet.getZhangSan().getSex());
     }

@@ -7,6 +7,7 @@ import com.lsq.demo.spring.annotation.LSQService;
 import com.lsq.demo.spring.aop.LSQAopConfig;
 import com.lsq.demo.spring.aop.LSQAopProxyUtils;
 import com.lsq.demo.spring.aop.proxy.LSQAopCglibProxy;
+import com.lsq.demo.spring.aop.proxy.LSQAopJDKProxy;
 import com.lsq.demo.spring.simple2.beans.LsqBeanDefinition;
 import com.lsq.demo.spring.simple2.beans.LsqBeanWrapper;
 import com.lsq.demo.spring.simple2.core.LsqBeanFactory;
@@ -190,9 +191,15 @@ public class LsqApplicationContext extends LSQDefaultListableBeanFactory impleme
             Object proxy = instance;
             // 符合切面的才使用代理,否则不使用代理,不然有问题,因为被代理的对象无法被注入,
             if (config.containPut(instance.getClass().toString())){
-                LSQAopCglibProxy cglibProxy = new LSQAopCglibProxy();
-                cglibProxy.setConfig(config);
-                proxy = cglibProxy.getInstance(instance.getClass());
+                if (proxy.getClass().getInterfaces().length > 0){
+                    LSQAopJDKProxy jdkProxy = new LSQAopJDKProxy();
+                    jdkProxy.setConfig(config);
+                    proxy = jdkProxy.getInstance(instance);
+                } else {
+                    LSQAopCglibProxy cglibProxy = new LSQAopCglibProxy();
+                    cglibProxy.setConfig(config);
+                    proxy = cglibProxy.getInstance(instance.getClass());
+                }
             }
             LsqBeanWrapper beanWrapper = new LsqBeanWrapper(instance,proxy);
             beanWrapper.setAopConfig(config);
