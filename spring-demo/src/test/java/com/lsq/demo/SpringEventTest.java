@@ -3,8 +3,8 @@ package com.lsq.demo;
 
 import com.lsq.demo.listener.entity.TestNotifyEvent;
 import com.lsq.demo.spring.aop.LSQAopProxyUtils;
+import com.lsq.demo.spring.controller.ControllerOneService;
 import com.lsq.demo.spring.simple.LsqDispatcherServlet;
-import com.lsq.demo.spring.simple.controller.ControllerOneService;
 import com.lsq.demo.spring.simple2.context.LsqApplicationContext;
 import com.lsq.gupaoedu.vip.spring.formework.context.GPApplicationContext;
 import org.junit.Test;
@@ -13,8 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.context.WebApplicationContext;
-
-import javax.servlet.ServletException;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)

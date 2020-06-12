@@ -1,7 +1,7 @@
 package com.lsq.demo.spring;
 
-import com.lsq.demo.spring.simple.controller.ControllerA;
-import com.lsq.demo.spring.simple.controller.ControllerOneService;
+import com.lsq.demo.spring.controller.ControllerOneService;
+import com.lsq.demo.spring.controller.ControllerA;
 import com.lsq.demo.spring.simple2.context.LsqApplicationContext;
 
 public class Test01 {

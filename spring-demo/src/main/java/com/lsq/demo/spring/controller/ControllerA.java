@@ -1,16 +1,16 @@
-package com.lsq.demo.spring.simple.controller;
+package com.lsq.demo.spring.controller;
 
 import com.lsq.demo.spring.annotation.LSQAutowired;
 import com.lsq.demo.spring.annotation.LSQController;
 
 @LSQController
-public class ControllerOneService {
+public class ControllerA {
 
     @LSQAutowired
     public TestService serviceTest;
 
     public void add(String a){
-//        serviceTest.add();
-        System.out.println("ControllerOne.add 啊啊啊" + a);
+        serviceTest.add();
+        System.out.println("ControllerA.add 啊啊啊");
     }
 }

@@ -1,4 +1,4 @@
-package com.lsq.demo.spring.simple.controller;
+package com.lsq.demo.spring.controller;
 
 import com.lsq.demo.spring.annotation.LSQService;
 

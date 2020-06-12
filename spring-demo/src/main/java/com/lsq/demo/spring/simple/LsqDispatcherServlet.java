@@ -3,7 +3,7 @@ package com.lsq.demo.spring.simple;
 import com.lsq.demo.spring.annotation.LSQAutowired;
 import com.lsq.demo.spring.annotation.LSQController;
 import com.lsq.demo.spring.annotation.LSQService;
-import com.lsq.demo.spring.simple.controller.ControllerOneService;
+import com.lsq.demo.spring.controller.ControllerOneService;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 

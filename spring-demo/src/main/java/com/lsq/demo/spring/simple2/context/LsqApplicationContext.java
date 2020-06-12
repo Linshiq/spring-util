@@ -188,6 +188,7 @@ public class LsqApplicationContext extends LSQDefaultListableBeanFactory impleme
             postProcessor.postProcessBeforeInitialization(bean,beanName);
             LSQAopConfig config = instantionAopConfig(bean);
             Object proxy = instance;
+            // 符合切面的才使用代理,否则不使用代理,不然有问题,因为被代理的对象无法被注入,
             if (config.containPut(instance.getClass().toString())){
                 LSQAopCglibProxy cglibProxy = new LSQAopCglibProxy();
                 cglibProxy.setConfig(config);
