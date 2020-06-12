@@ -16,9 +16,8 @@ public class LsqBeanWrapper implements FactoryBean {
     // 原始的通过反射new出来，包装并且存下来
     private Object originalInstance;
 
-    public LsqBeanWrapper(Object instance){
-        System.out.println("aopProxy地址 "+aopProxy.toString());
-        this.wrapperInstance = aopProxy.getInstance(instance.getClass());
+    public LsqBeanWrapper(Object instance,Object proxy){
+        this.wrapperInstance = proxy;
         this.originalInstance = instance;
     }
 

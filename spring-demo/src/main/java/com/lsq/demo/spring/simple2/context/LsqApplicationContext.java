@@ -6,6 +6,7 @@ import com.lsq.demo.spring.annotation.LSQController;
 import com.lsq.demo.spring.annotation.LSQService;
 import com.lsq.demo.spring.aop.LSQAopConfig;
 import com.lsq.demo.spring.aop.LSQAopProxyUtils;
+import com.lsq.demo.spring.aop.proxy.LSQAopCglibProxy;
 import com.lsq.demo.spring.simple2.beans.LsqBeanDefinition;
 import com.lsq.demo.spring.simple2.beans.LsqBeanWrapper;
 import com.lsq.demo.spring.simple2.core.LsqBeanFactory;
@@ -185,8 +186,15 @@ public class LsqApplicationContext extends LSQDefaultListableBeanFactory impleme
             }
             LSQBeanPostProcessor postProcessor = new LSQBeanPostProcessor();
             postProcessor.postProcessBeforeInitialization(bean,beanName);
-            LsqBeanWrapper beanWrapper = new LsqBeanWrapper(instance);
-            beanWrapper.setAopConfig(instantionAopConfig(bean));
+            LSQAopConfig config = instantionAopConfig(bean);
+            Object proxy = instance;
+            if (config.containPut(instance.getClass().toString())){
+                LSQAopCglibProxy cglibProxy = new LSQAopCglibProxy();
+                cglibProxy.setConfig(config);
+                proxy = cglibProxy.getInstance(instance.getClass());
+            }
+            LsqBeanWrapper beanWrapper = new LsqBeanWrapper(instance,proxy);
+            beanWrapper.setAopConfig(config);
             beanWrapperMap.put(beanName, beanWrapper);
             postProcessor.postProcessAfterInitialization(bean,beanName);
             // 这期间可以处理一些自己想要处理的事情
@@ -241,6 +249,18 @@ public class LsqApplicationContext extends LSQDefaultListableBeanFactory impleme
             Class clazz = Class.forName(beanClassName);
             Pattern pattern = Pattern.compile(expression);
 
+            String pointCut = expression
+                    .replaceAll("\\.","\\\\.")
+                    .replaceAll("\\\\.\\*",".*")
+                    .replaceAll("\\(","\\\\(")
+                    .replaceAll("\\)","\\\\)");
+            //pointCut=public .* com.gupaoedu.vip.spring.demo.service..*Service..*(.*)
+            //玩正则
+            String pointCutForClassRegex = pointCut.substring(0,pointCut.lastIndexOf("\\(") - 4);
+            Pattern configClass = Pattern.compile("class " + pointCutForClassRegex.substring(
+                    pointCutForClassRegex.lastIndexOf(" ") + 1));
+            // 将需要加强的类的正则表达式加到config中
+            config.setPattern(configClass);
             //public .*com\.gupaoedu\.vip\.spring\.demo\.service\..*Service\..(.*\)
             //public java.lang.String com.gupaoedu.vip.spring.demo.service.impl.ModifyService.add(java.lang.String,java.lang.String)
 
