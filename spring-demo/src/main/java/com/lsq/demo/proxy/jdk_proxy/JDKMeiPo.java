@@ -7,11 +7,11 @@ import java.lang.reflect.Proxy;
 /**
  * JDK代理
  */
-public class MeiPo implements InvocationHandler {
+public class JDKMeiPo implements InvocationHandler {
 
-    private Person targer;
+    private Object targer;
 
-    public Object getInstance(Person person){
+    public Object getInstance(ZhangSan person){
         this.targer = person;
         Class clazz = person.getClass();
         return Proxy.newProxyInstance(clazz.getClassLoader(),clazz.getInterfaces(),this);
@@ -19,7 +19,7 @@ public class MeiPo implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("我进来了"+this.targer.getName());
+        System.out.println("我进来了"+this.targer.getClass());
       //  String resutl = targer.findLove();
         // 执行代理
         Object obj;

@@ -11,7 +11,7 @@ import java.lang.reflect.Proxy;
 /**
  * 代理实例化工具类
  */
-public class MeiPo implements MethodInterceptor {
+public class CglibMeiPo implements MethodInterceptor {
 
     public Object getInstance(Class clazz){
 

@@ -8,7 +8,7 @@ import java.io.FileOutputStream;
 public class TestProxyFindLove {
 
     public static void main(String[] args) throws Exception {
-        Person person = (Person) new MeiPo().getInstance(new ZhangSan());
+        Person person = (Person) new JDKMeiPo().getInstance(new ZhangSan());
         // 实际上下面这个方法并不会实际执行 只会按照代理方法的invoke的顺序去执行
         // 也就是说 findlove 和 findlove2结果是一致的
         System.out.println(person.findLove());;

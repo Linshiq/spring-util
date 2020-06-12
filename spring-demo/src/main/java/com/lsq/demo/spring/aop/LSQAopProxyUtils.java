@@ -12,9 +12,9 @@ import java.lang.reflect.Proxy;
 public class LSQAopProxyUtils {
 
     public static Object getTargetObject(Object proxy) throws Exception {
-        if (!isAopProxy(proxy)) {
-            return proxy;
-        }
+//        if (!isAopProxy(proxy)) {
+//            return proxy;
+//        }
 
         if (AopUtils.isJdkDynamicProxy(proxy)) {
             proxy = getJdkDynamicProxyTargetObject(proxy);
